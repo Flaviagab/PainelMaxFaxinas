@@ -17,6 +17,18 @@ class IndexController{
         $this->administradorRepository = $this->entityManager->getRepository(Administrador::class);
     }
 
+    public function index(): void
+    {
+        $page = 'home';
+        include __DIR__ . '/../View/index/index.php';
+    }
+
+     public function erro(): void
+    {
+        $page = 'erro';
+        include __DIR__ . '/../View/index/erro.php';
+    }
+
     public function verificar($dados)
     {
         $email = $dados["email"] ?? null;
@@ -41,7 +53,7 @@ class IndexController{
                 'nome' => $administrador->getNome()
             ];
 
-            echo "<script>mensagem('Login realizado com sucesso!', 'home', 'success')</script>";
+            echo "<script>mensagem('Login realizado com sucesso!', 'index', 'success')</script>";
         } else {
             echo "<script>mensagem('Email ou senha incorretos','login', 'error')</script>";
             exit;
