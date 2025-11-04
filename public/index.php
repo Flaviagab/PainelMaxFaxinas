@@ -1,4 +1,6 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 require_once __DIR__ . '/../vendor/autoload.php';
 
 use App\Controller\IndexController;
@@ -50,7 +52,7 @@ session_start();
 <body>
     <?php
     if ((!isset($_SESSION["admin"])) && (!$_POST)) {
-        require "../index/login.php";
+        require __DIR__ . "/../src/View/index/login.php";
     } else if ((!isset($_SESSION["admin"])) && ($_POST)) {
         $email = trim($_POST["email"] ?? null);
         $senha = trim($_POST["senha"] ?? null);
@@ -85,7 +87,7 @@ session_start();
                                 <a class="nav-link" href="servicos">Serviços</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="adicionais">Adicionais</a>
+                                <a class="nav-link" href="adicional">Adicionais</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="usuarios">Usuários</a>
@@ -115,12 +117,14 @@ session_start();
                     </div>
                 </div>
             </nav>
-        </header>
+      
 
         <main>
             <?php
 
-            $controller = $_GET["param"] ?? NULL;
+            $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+            $uri = trim($uri, '/');
+            $controller = !empty($uri) ? $uri : 'index';
             $param = explode("/", $controller);
 
             $controller = $param[0] ?? "index";
