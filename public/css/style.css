@@ -334,12 +334,6 @@ header {
 }
 
 
-form {
-    width: 500px;
-    font-size: 1.125rem;
-}
-
-
 .senhaLogin .btn {
     display: flex;
     align-items: center;
@@ -433,8 +427,20 @@ textarea:focus {
     }
 }
 
+.btnUsuario{
+    width: 20%;
+}
+
 .navbar .nav-item .btn {
   padding: 8px 15px;
+}
+
+.parsley-errors-list {
+    list-style: none;        /* remove a bolinha */
+         /* espaço pequeno acima da mensagem */
+    padding: 0;
+    color: #dc3545;           /* vermelho Bootstrap (mesmo do .text-danger) */
+    font-size: 0.875rem;      /* levemente menor */
 }
 
 footer {

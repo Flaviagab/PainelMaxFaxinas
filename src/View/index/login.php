@@ -1,4 +1,4 @@
-<div class="d-flex justify-content-center align-items-center ">
+<div class="d-flex justify-content-center align-items-center">
     <div class="card">
         <div class="card-header text-center">
             <h2>Login</h2>

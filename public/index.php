@@ -84,13 +84,13 @@ session_start();
                                 <a class="nav-link" aria-current="page" href="index">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="servicos">Serviços</a>
+                                <a class="nav-link" href="servico">Serviços</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="adicional">Adicionais</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="usuarios">Usuários</a>
+                                <a class="nav-link" href="usuario">Usuários</a>
                             </li>
                         </ul>
                         <ul class="navbar-nav ms-auto">
