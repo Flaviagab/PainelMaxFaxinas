@@ -1,6 +1,6 @@
 <?php
 if (!empty($id)) {
-    $dados = $this->usuario->editar($id);
+    $dados = $this->cliente->editar($id);
 }
 
 $id = $dados->id ?? null;
@@ -15,26 +15,26 @@ $senha = $dados->senha ?? null;
     <div class="card">
         <div class="card-header">
             <div class="float-start">
-                <h2>Cadastro de Usuários</h2>
+                <h2>Cadastro de Clientes</h2>
             </div>
             <div class="float-end">
-                <a href="" title="Novo" class="btn">
-                    <i class="bi bi-file-earmark"></i> NOvo Registro
+                <a href="/cliente" title="Novo" class="btn">
+                    <i class="bi bi-file-earmark"></i> Novo Registro
                 </a>
-                <a href="" title="Listar" class="btn">
+                <a href="cliente/listar" title="Listar" class="btn">
                     <i class="bi bi-search"></i> Listar
                 </a>
             </div>
         </div>
         <div class="card-body">
-            <form action="usuario/salvar" name="formUsuario" method="post" data-parsley-validate="">
+            <form action="cliente/salvar" name="formUsuario" method="post" data-parsley-validate="">
                 <div class="row">
                     <div class="col-12 col-md-1">
                         <label for="id">ID:</label>
                         <input type="text" name="id" id="id" class="form-control" readonly value="<?= $id ?>">
                     </div>
                     <div class="col-12 col-md-11">
-                        <label for="nome">Nome do Usuário</label>
+                        <label for="nome">Nome do Cliente</label>
                         <input type="text" name="nome" id="nome" class="form-control" value="<?= $nome ?>" required data-parsley-required-message="Preencha o nome">
                     </div>
                 </div>

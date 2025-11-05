@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping\Id;
 use App\Core\Database;
 
 #[Entity()]
-class Usuario
+class Cliente
 {
 
     #[Column(), Id, GeneratedValue()]
@@ -41,7 +41,6 @@ class Usuario
         return $this->id;
     }
 
-    // Getters (Serve para pegar os valores)
     public function getCpf(): string
     {
         return $this->cpf;
@@ -72,7 +71,6 @@ class Usuario
         $this->senha = password_hash($senha, PASSWORD_DEFAULT);
     }
 
-    // Setters (Serve para alterar os valores)
     public function setCpf(string $cpf): void
     {
         $this->cpf = $cpf;
@@ -103,7 +101,14 @@ class Usuario
     public static function findAll(): array
     {
         $em = Database::getEntityManager();
-        $repository = $em->getRepository(Usuario::class);
+        $repository = $em->getRepository(Cliente::class);
         return $repository->findAll();
+    }
+
+       public static function listar(): array
+    {
+        $em = Database::getEntityManager();
+        $repo = $em->getRepository(self::class);
+        return $repo->findBy([], ['nome' => 'ASC']);
     }
 }

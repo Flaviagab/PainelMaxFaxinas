@@ -1,6 +1,4 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
 require_once __DIR__ . '/../vendor/autoload.php';
 
 use App\Controller\IndexController;
@@ -19,13 +17,13 @@ session_start();
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="/css/style.css">
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="js/jquery-3.7.1.js"></script>
-    <script src="js/jquery.mask.min.js"></script>
-    <script src="js/parsley.min.js"></script>
+    <script src="/js/jquery-3.7.1.js"></script>
+    <script src="/js/jquery.mask.min.js"></script>
+    <script src="/js/parsley.min.js"></script>
 
     <script>
         function mostrarSenha() {
@@ -84,13 +82,13 @@ session_start();
                                 <a class="nav-link" aria-current="page" href="index">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="servico">Serviços</a>
+                                <a class="nav-link" href="/servico">Serviços</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="adicional">Adicionais</a>
+                                <a class="nav-link" href="/adicional">Adicionais</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="usuario">Usuários</a>
+                                <a class="nav-link" href="/cliente">Clientes</a>
                             </li>
                         </ul>
                         <ul class="navbar-nav ms-auto">

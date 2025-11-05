@@ -436,11 +436,10 @@ textarea:focus {
 }
 
 .parsley-errors-list {
-    list-style: none;        /* remove a bolinha */
-         /* espaço pequeno acima da mensagem */
+    list-style: none;        
     padding: 0;
-    color: #dc3545;           /* vermelho Bootstrap (mesmo do .text-danger) */
-    font-size: 0.875rem;      /* levemente menor */
+    color: #dc3545;           
+    font-size: 0.875rem;     
 }
 
 footer {
