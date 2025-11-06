@@ -13,7 +13,7 @@ $servicos = Servico::findAll();
                 <h2>Cadastro de Adicionais</h2>
             </div>
             <div class="float-end">
-                <a href="servico" class="btn">
+                <a href="adicional" class="btn">
                     <i class="bi bi-file-earmark"></i> Adicionar
                 </a>
 
@@ -23,7 +23,7 @@ $servicos = Servico::findAll();
             </div>
         </div>
         <div class="card-body">
-            <form name="formCadastro" method="post" action="adicional/salvar" enctype="multipart/form-data" data-parsley-validate="" class="formAdicional">
+            <form name="formCadastro" method="post" action="/adicional/salvar" enctype="multipart/form-data" data-parsley-validate="" class="formAdicional">
                 <div class="row">
                     <div class="col-12 col-md-1">
                         <label for="id">ID:</label>
@@ -45,11 +45,23 @@ $servicos = Servico::findAll();
                         </select>
                     </div>
                     <div class="col-12 col-md-6">
+                        <label for="descricao">Descrição:</label>
+                        <input type="text" name="descricao" id="descricao" class="form-control" required data-parsley-required-message="Digite a descrição do adicional">
+                    </div>
+                    <br>
+                    <div class="col-12 col-md-6">
                         <label for="preco">Preço:</label>
                         <input type="text" name="preco" id="preco" class="form-control">
                     </div>
+                    <div class="text-center text-lg-end">
+                    <button type="submit" class="btn btnUsuario">
+                        <i class="bi bi-check-lg"></i> Salvar
+                    </button>
+                </div>
                 </div>
             </form>
         </div>
     </div>
+</div>
+
 </div>
