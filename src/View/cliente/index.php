@@ -53,7 +53,9 @@ $senha = "";
                     </div>
                     <div class="col-12 col-md-6">
                         <label for="senha">Senha:</label>
-                        <input type="password" name="senha" id="senha" class="form-control" value="" required data-parsley-required-message="Preencha a senha" data-parsley-minlength="6" data-parsley-minlength-message="A senha deve ter pelo menos 6 caracteres">
+                        <input type="password" name="senha" id="senha" class="form-control" value="" <?= empty($dados?->getId()) ? 'required data-parsley-required-message="Preencha a senha"' : '' ?>
+                            data-parsley-minlength="6"
+                            data-parsley-minlength-message="A senha deve ter pelo menos 6 caracteres">
                     </div>
                 </div>
                 <br>

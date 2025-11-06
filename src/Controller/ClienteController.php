@@ -23,7 +23,6 @@ class ClienteController
     {
         $dados = null;
 
-        // Se vier um ID, carrega o cliente para edição
         if (!empty($id)) {
             $dados = $this->clienteRepository->find($id);
         }
@@ -40,5 +39,10 @@ class ClienteController
     {
         $clientes = $this->clienteRepository->findBy([], ['nome' => 'ASC']);
         require __DIR__ . "/../View/cliente/listar.php";
+    }
+
+    public function excluir($id = null)
+    {
+        require __DIR__ . "/../View/cliente/excluir.php";
     }
 }

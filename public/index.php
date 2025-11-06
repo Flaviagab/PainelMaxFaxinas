@@ -13,7 +13,7 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Painel de Controle</title>
 
-    <link rel="shortcut icon" href="imagens/iconeAdmin.png">
+    <link rel="shortcut icon" href="/imagens/iconeAdmin.png">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
@@ -43,6 +43,21 @@ session_start();
             }).then((result) => {
                 location.href = url;
             })
+        }
+
+        function confirmarExclusao(url) {
+            Swal.fire({
+                title: "Tem certeza?",
+                text: "Essa ação não poderá ser desfeita!",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonText: "Sim, excluir",
+                cancelButtonText: "Cancelar"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    location.href = url;
+                }
+            });
         }
     </script>
 </head>
@@ -90,6 +105,9 @@ session_start();
                             <li class="nav-item">
                                 <a class="nav-link" href="/cliente">Clientes</a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/endereco">Endereços</a>
+                            </li>
                         </ul>
                         <ul class="navbar-nav ms-auto">
                             <li class="nav-item">
@@ -115,36 +133,36 @@ session_start();
                     </div>
                 </div>
             </nav>
-      
 
-        <main>
-            <?php
 
-            $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
-            $uri = trim($uri, '/');
-            $controller = !empty($uri) ? $uri : 'index';
-            $param = explode("/", $controller);
+            <main>
+                <?php
 
-            $controller = $param[0] ?? "index";
-            $acao = $param[1] ?? "index";
-            $id = $param[2] ?? NULL;
+                $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+                $uri = trim($uri, '/');
+                $controller = !empty($uri) ? $uri : 'index';
+                $param = explode("/", $controller);
 
-            $controller = ucfirst($controller) . "Controller";
-            $page = __DIR__ . "/../src/Controller/{$controller}.php";
+                $controller = $param[0] ?? "index";
+                $acao = $param[1] ?? "index";
+                $id = $param[2] ?? NULL;
 
-            if (file_exists($page)) {
+                $controller = ucfirst($controller) . "Controller";
+                $page = __DIR__ . "/../src/Controller/{$controller}.php";
 
-                include $page;
-                $classe = "App\\Controller\\" . $controller;
-                $control = new $classe();
-                $control->$acao($id);
-            } else include __DIR__ . "/../src/View/index/erro.php";
-            ?>
-        </main>
+                if (file_exists($page)) {
 
-    <?php
+                    include $page;
+                    $classe = "App\\Controller\\" . $controller;
+                    $control = new $classe();
+                    $control->$acao($id);
+                } else include __DIR__ . "/../src/View/index/erro.php";
+                ?>
+            </main>
+
+        <?php
     }
-    ?>
+        ?>
 
 
 </body>

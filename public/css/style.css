@@ -429,7 +429,8 @@ textarea:focus {
 }
 
 .btnUsuario{
-    width: 20%;
+    width: auto;         /* não força tamanho */
+    min-width: 180px;    /* tamanho mínimo bonito */
 }
 
 .navbar .nav-item .btn {
@@ -442,6 +443,16 @@ textarea:focus {
     color: #dc3545;           
     font-size: 0.875rem;     
 }
+
+.col-opcoes {
+    width: 120px;
+    text-align: center;
+}
+
+.col-opcoes a {
+    font-size: 14px;       
+}
+
 
 footer {
     background-color: #eef4ed;
@@ -653,6 +664,11 @@ footer .text-center {
         font-size: 1rem;
     }
 
+     .col-opcoes .btn {
+        display: block;    
+        margin: 4px auto;
+        width: 70px;         
+    }
 
     .titulo-feedback {
         margin-bottom: 0px;
