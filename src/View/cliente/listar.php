@@ -6,7 +6,7 @@
             </div>
             <div class="float-end">
                 <a href="/cliente" title="Novo" class="btn">
-                    <i class="bi bi-file-earmark"></i> NOvo Registro
+                    <i class="bi bi-file-earmark"></i> Novo Registro
                 </a>
                 <a href="/cliente/listar" title="Listar" class="btn">
                     <i class="bi bi-search"></i> Listar
@@ -25,15 +25,20 @@
                 </thead>
                 <tbody>
                     <?php
-                        foreach ($clientes as $dados){
-                            ?>
-                                <tr>
-                                    <td><?=$dados->getId()?></td>
-                                    <td><?=$dados->getNome()?></td>
-                                    <td><?=$dados->getTelefone()?></td>
-                                </tr>
-                            <?php
-                        }
+                    foreach ($clientes as $cliente) {
+                    ?>
+                        <tr>
+                            <td><?= $cliente->getId() ?></td>
+                            <td><?= $cliente->getNome() ?></td>
+                            <td><?= $cliente->getTelefone() ?></td>
+                            <td>
+                                <a href="/cliente/index/<?= $cliente->getId() ?>" class="btn" title="Editar">
+                                    <i class="bi bi-pencil-square"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    <?php
+                    }
                     ?>
                 </tbody>
             </table>

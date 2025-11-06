@@ -7,7 +7,6 @@
 
 body {
     font-family: 'Nunito', sans-serif;
-    padding-top: 70px;
 }
 
 /* INICIO DO ADMINSTRADOR */
@@ -78,7 +77,6 @@ td.status-cancelado {
 /* INICIO DO HEADER*/
 header {
     text-transform: uppercase;
-    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -407,7 +405,10 @@ textarea:focus {
 
 .backgroundLogin {
     background: linear-gradient(100deg, #0b2545, #163561, #2a65a9);
-    min-height: 100vh;
+    min-height: 100vh; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .linkCadastro {
