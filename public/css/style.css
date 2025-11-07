@@ -453,6 +453,12 @@ textarea:focus {
     font-size: 14px;       
 }
 
+.img-servico {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+}
 
 footer {
     background-color: #eef4ed;
