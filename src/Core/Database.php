@@ -18,10 +18,10 @@ class Database
     public static function getEntityManager(): EntityManager
     {
         if (!isset(self::$entityManager)) {
-            self::$entityManager = new EntityManager(
-                self::getConnection(), 
-                self::getConfig()
-            );
+            $config = self::getConfig();
+            $connection = self::getConnection();
+
+            self::$entityManager = new EntityManager($connection, $config);
         }
 
         return self::$entityManager;
@@ -33,16 +33,16 @@ class Database
         $isDevMode = true;
 
         return ORMSetup::createAttributeMetadataConfiguration(
-            $paths, 
+            $paths,
             $isDevMode
         );
     }
 
     private static function getConnection(): Connection
     {
-        
         $dotenv = Dotenv::createImmutable(__DIR__ . '/../../');
         $dotenv->load();
+
         $dbParams = [
             'driver'   => $_ENV['DB_DRIVER'],
             'user'     => $_ENV['DB_USER'],
@@ -50,13 +50,7 @@ class Database
             'dbname'   => $_ENV['DB_DBNAME'],
             'host'     => $_ENV['DB_HOST']
         ];
-        
-        $config = self::getConfig();
 
-        return DriverManager::getConnection(
-            $dbParams, 
-            $config
-        );
+        return DriverManager::getConnection($dbParams);
     }
-
 }

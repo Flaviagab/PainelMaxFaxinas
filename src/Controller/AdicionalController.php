@@ -8,21 +8,28 @@ use Doctrine\ORM\EntityManager;
 
 class AdicionalController
 {
-    private EntityManager $entityManager;
+    private $entityManager;
     private $adicionalRepository;
 
     public function __construct()
     {
-        $entityManager = Database::getEntityManager();
-        $this->adicionalRepository = $entityManager->getRepository(Adicional::class);
+        $this->entityManager = Database::getEntityManager();
+        $this->adicionalRepository = $this->entityManager->getRepository(Adicional::class);
     }
-    public function index($id = null)
+    public function index($id)
     {
+
+        $dados = null;
+
+        if (!empty($id)) {
+            $dados = $this->adicionalRepository->find($id);
+        }
+
         $entityManager = Database::getEntityManager();
 
         $repo = $entityManager->getRepository(Servico::class);
 
-        $servicos = $repo->findAll();
+        //$servicos = $repo->findAll();
 
         require __DIR__ . "/../View/adicional/index.php";
     }
@@ -35,7 +42,7 @@ class AdicionalController
 
     public function excluir($id)
     {
-        // excluir os dados
+        require __DIR__ . "/../View/adicional/excluir.php";
     }
 
     public function listar()
