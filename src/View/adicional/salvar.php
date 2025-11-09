@@ -23,7 +23,7 @@ use App\Core\Database;
         }
 
         if (empty($id)) {
-            $adicional = new Adicional($nome, (float)$preco, $descricao, $servico);
+            $adicional = new Adicional($nome, (float)$preco, $descricao,$imagem, $servico);
             $em->persist($adicional);
         } else {
             $adicional = $em->find(Adicional::class, $id);

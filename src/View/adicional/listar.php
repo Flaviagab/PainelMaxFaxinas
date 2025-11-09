@@ -28,7 +28,6 @@ $servico = $dados?->getServico() ?? null;
                         <th>ID</th>
                         <th>Nome</th>
                         <th>Preço</th>
-                        <th>Serviço</th>
                         <th class ="col-opcoes">Opções</th>
                     </tr>
                 </thead>
@@ -40,7 +39,6 @@ $servico = $dados?->getServico() ?? null;
                                     <td><?=$dados->getId()?></td>
                                     <td><?=$dados->getNome()?></td>
                                     <td><?=$dados->getPreco()?></td>
-                                    <td><?=$dados->getServico()->getTipoDeServico()?></td>
                                     <td class="col-opcoes">
                                 <a href="/adicional/index/<?= $dados->getId() ?>" class="btn" title="Editar">
                                     <i class="bi bi-pencil-square"></i>
