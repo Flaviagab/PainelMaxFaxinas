@@ -55,8 +55,11 @@ $servicos = Servico::findAll();
 
                     <div class="col-12 col-md-6">
                         <label for="preco">Preço:</label>
-                        <input type="text" name="preco" id="preco" required data-parsley-required-message="Preencha o preço do adicional" class="form-control" value="<?= $dados?->getPreco() ?? '' ?>">
+                        <input type="text" name="preco" id="preco" required data-parsley-required-message="Preencha o preço do adicional" class="form-control preco" value="<?= $dados?->getPreco() ?? '' ?>">
                     </div>
+
+                    
+
                     
                      <div class="col-12 col-md-6">
                         <label for="imagem">Imagem (jpg/png):</label>
@@ -83,3 +86,8 @@ $servicos = Servico::findAll();
         </div>
     </div>
 </div>
+<script>
+    $(document).ready(function() {
+    $('.preco').mask('000.000.000.000.000,00', {reverse: true});
+    });
+</script>

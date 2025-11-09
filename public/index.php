@@ -108,6 +108,9 @@ session_start();
                             <li class="nav-item">
                                 <a class="nav-link" href="/endereco">Endereços</a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Agendamento">Agendamentos</a>
+                            </li>
                         </ul>
                         <ul class="navbar-nav ms-auto">
                             <li class="nav-item">
@@ -166,5 +169,8 @@ session_start();
 
 
 </body>
-
+<footer class="">
+    <div class="text-center py-3 mt-4">
+        <span>© 2024 Painel de Controle - Max Faxinas</span>
+    </div>
 </html>

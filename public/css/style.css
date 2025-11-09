@@ -647,6 +647,16 @@ footer .text-center {
 
     }
 
+    .footer-adm {
+    background-color: #001f4d; /* azul escuro do layout */
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: auto;
+    width: 100%;
+}
+
+
     .row {
         padding-bottom: 0px;
     }
