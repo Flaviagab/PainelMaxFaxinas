@@ -6,7 +6,7 @@ $descricao = $dados?->getDescricao() ?? '';
 $imagem = $dados?->getImagem() ?? null;
 ?>
 
-<div class="container">
+<div class="container mt-4">
     <div class="card">
         <div class="card-header">
             <div class="float-start">

@@ -21,7 +21,7 @@ $estados = $em->getRepository(Estado::class)->findAll();
 $paises = $em->getRepository(Pais::class)->findAll();
 ?>
 
-<div class="container">
+<div class="container mt-4">
     <div class="card">
         <div class="card-header">
             <div class="float-start">
