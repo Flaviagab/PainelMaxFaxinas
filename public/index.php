@@ -169,7 +169,7 @@ session_start();
 
 
 </body>
-<footer class="">
+<footer class="footer-adm">
     <div class="text-center py-3 mt-4">
         <span>© 2024 Painel de Controle - Max Faxinas</span>
     </div>

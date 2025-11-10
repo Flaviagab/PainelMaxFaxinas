@@ -22,8 +22,6 @@ class Adicional
     #[ORM\Column(type: "string", length: 255)]
     private string $descricao;
 
-    #[ORM\Column()]
-    private string $imagem;
 
     #[ORM\ManyToOne(targetEntity: Servico::class)]
     #[ORM\JoinColumn(name: "servico_id", referencedColumnName: "id", nullable: false)]
@@ -33,13 +31,11 @@ class Adicional
     string $nome = '',
     float $preco = 0,
     string $descricao = '',
-    string $imagem = '',
     ?Servico $servico = null
 ) {
     $this->nome = $nome;
     $this->preco = $preco;
     $this->descricao = $descricao;
-    $this->imagem = $imagem;
     $this->servico = $servico;
 }
 
@@ -63,10 +59,7 @@ class Adicional
         return $this->descricao;
     }
 
-    public function getImagem(): string
-    {
-        return $this->imagem;
-    }
+  
 
     public function getServico(): Servico
     {
@@ -88,10 +81,7 @@ class Adicional
         $this->descricao = $descricao;
     }
 
-    public function setImagem(string $imagem): void
-    {
-        $this->imagem = $imagem;
-    }
+   
 
     public function setServico(Servico $servico): void
     {

@@ -13,11 +13,10 @@ $servicos = Servico::findAll();
                 <h2>Cadastro de Adicionais</h2>
             </div>
             <div class="float-end">
-                <a href="adicional" class="btn">
-                    <i class="bi bi-file-earmark"></i> Adicionar
+                <a href="/adicional" title="Novo" class="btn">
+                    <i class="bi bi-file-earmark"></i> Novo Registro
                 </a>
-
-                <a href="adicional/listar" class="btn">
+                <a href="/adicional/listar" title="Listar" class="btn">
                     <i class="bi bi-search"></i> Listar
                 </a>
             </div>
@@ -58,19 +57,11 @@ $servicos = Servico::findAll();
                         <input type="text" name="preco" id="preco" required data-parsley-required-message="Preencha o preço do adicional" class="form-control preco" value="<?= $dados?->getPreco() ?? '' ?>">
                     </div>
 
-                    
-
-                    
-                     <div class="col-12 col-md-6">
-                        <label for="imagem">Imagem (jpg/png):</label>
-                        <input type="file" name="imagem" id="imagem" class="form-control" accept="image/*"
-                               <?= empty($id) ? 'required data-parsley-required-message="Envie uma imagem"' : '' ?>>
-                    </div>
-
-                    <div class="row mt-4" >
+                 
+                    <div class="row mt-4">
                         <div class="col-12">
                             <label for="descricao">Descrição do Adicional:</label>
-                            <textarea name="descricao" id="descricao" class="form-control" rows="4" required data-parsley-required-message="Preencha a descrição do adicional" value="<?= $dados?->getDescricao() ?? '' ?>"></textarea>
+                            <textarea name="descricao" id="descricao" class="form-control" rows="4" required data-parsley-required-message="Preencha a descrição do adicional"><?= $dados?->getDescricao() ?? '' ?></textarea>
                         </div>
                     </div>
 

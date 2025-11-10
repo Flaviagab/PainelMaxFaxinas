@@ -44,7 +44,7 @@ $imagem = $dados?->getImagem() ?? null;
                 <div class="row">
                     <div class="col-12 col-md-6">
                         <label for="preco">Preço:</label>
-                        <input type="text" name="preco" id="preco" class="form-control"
+                        <input type="text" name="preco" id="preco" class="form-control preco"
                                value="<?= $preco ?>"
                                required data-parsley-required-message="Preencha o preço">
                     </div>
@@ -76,3 +76,8 @@ $imagem = $dados?->getImagem() ?? null;
         </div>
     </div>
 </div>
+<script>
+    $(document).ready(function() {
+    $('.preco').mask('000.000.000.000.000,00', {reverse: true});
+    });
+</script>

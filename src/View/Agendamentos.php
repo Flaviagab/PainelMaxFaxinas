@@ -1,4 +1,4 @@
-<main class="administrador bg-primary py-4">
+
     <div class="admin-header text-center mb-4">
       <h1 class="titulo">Lista de Agendamentos</h1>
     </div>
@@ -29,7 +29,7 @@
                 <td class="align-middle w-15"><?= $agendamento->getCliente()->getNome() ?></td>
                 <td class="align-middle w-15"><?= $agendamento->getServico()->getTipoDeServico() ?></td>
                 <td class="align-middle w-15"><?= $agendamento->getCliente()->getTelefone() ?></td>
-                <td class="align-middle w-15"><?= $agendamento->getCliente()->getEndereco() ?></td>
+                
                 <td class="w-15">
                   <form method="POST" action="/mudarStatus" class="d-flex flex-column align-items-start gap-2 w-auto">
                     <input type="hidden" name="id" value="<?= $agendamento->getId() ?>">
@@ -52,4 +52,4 @@
     </div>
 
   </div>
-</main>
+

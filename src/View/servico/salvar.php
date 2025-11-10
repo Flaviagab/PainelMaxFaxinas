@@ -8,10 +8,13 @@ require_once __DIR__ . "/../../../vendor/autoload.php";
 $entityManager = Database::getEntityManager();
 
 try {
-    $id         = $_POST['id'] ?? null;
-    $tipoDeServico       = $_POST['tipoDeServico'] ?? "";
-    $preco      = $_POST['preco'] ?? "";
-    $descricao  = $_POST['descricao'] ?? "";
+    $id = $_POST['id'] ?? null;
+    $tipoDeServico = $_POST['tipoDeServico'] ?? "";
+    $preco = $_POST['preco'] ?? "";
+    $descricao = $_POST['descricao'] ?? "";
+
+    $preco = str_replace('.', '', $preco);
+    $preco = str_replace(',', '.', $preco);
 
     $imagemFinal = null;
 
@@ -54,7 +57,7 @@ try {
 
     $entityManager->persist($servico);
     $entityManager->flush();
-    echo "<script>mensagem('Serviço salvo com sucesso!', '/servico/listar', 'success');</script>";
+    echo "<script>mensagem('Serviço salvo com sucesso!', '/servico', 'success');</script>";
 } catch (Exception $e) {
     echo "<script>mensagem('Erro ao salvar', '/servico', 'error');</script>";
 }

@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping\GeneratedValue;
 use Doctrine\ORM\Mapping\Id;
 
 #[Entity()]
-class Forma_pagamento
+class FormaPagamento
 {
     #[Column, Id, GeneratedValue]
     private int $id;

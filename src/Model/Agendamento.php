@@ -30,9 +30,9 @@ class Agendamento
     private Servico $servico;
 
     #[ManyToOne()]
-    private forma_pagamento $forma_pagamento;
+    private FormaPagamento $forma_pagamento;
 
-    public function __construct(DateTime $data, string $status, Cliente $cliente, Servico $servico, forma_pagamento $forma_pagamento)
+    public function __construct(DateTime $data, string $status, Cliente $cliente, Servico $servico, FormaPagamento $forma_pagamento)
     {
         $this->data = $data;
         $this->status = $status;
@@ -65,7 +65,7 @@ class Agendamento
         return $this->servico;
     }
 
-    public function getFormaPagamento(): forma_pagamento
+    public function getFormaPagamento(): FormaPagamento
     {
         return $this->forma_pagamento;
     }
