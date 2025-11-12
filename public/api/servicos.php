@@ -6,14 +6,29 @@ require "../../vendor/autoload.php";
 
 header("Content-Type: application/json");
 
-// Se quiser filtrar por ID futuramente, pode pegar de $_GET["id"]
-// $id = $_GET["id"] ?? null;
-
 $em = Database::getEntityManager();
 $repo = $em->getRepository(Servico::class);
 
-$servicos = $repo->findAll();
+if (isset($_GET["id"])) {
+    $id = (int)$_GET["id"];
+    $servico = $repo->find($id);
 
+    if (!$servico) {
+        http_response_code(404);
+        echo json_encode(["erro" => "Serviço não encontrado"]);
+        exit;
+    }
+
+    echo json_encode([
+        "id" => $servico->getId(),
+        "tipoDeServico" => $servico->getTipoDeServico(),
+        "descricao" => $servico->getDescricao(),
+        "imagem" => $servico->getImagem(),
+    ]);
+    exit;
+}
+
+$servicos = $repo->findAll();
 $dados = [];
 
 foreach ($servicos as $s) {
