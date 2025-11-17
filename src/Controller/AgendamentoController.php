@@ -1,19 +1,25 @@
 <?php
 namespace App\Controller;
 
-use App\Model\Administrador;
 use App\Model\Agendamento;
 use App\Core\Database;
-use Doctrine\ORM\EntityManager;
 
 class AgendamentoController {
     public function index($id = null) {
-        $dados = null;
+        $entityManager = Database::getEntityManager();
 
         if (!empty($id)) {
-            $entityManager = Database::getEntityManager();
-            $agendamentoRepository = $entityManager->getRepository(Agendamento::class);
-            $dados = $agendamentoRepository->find($id);
+
+            $agendamentos = [$entityManager->getRepository(Agendamento::class)->find($id)];
+
+        } else {
+           
+            $agendamentos = $entityManager->getRepository(Agendamento::class)->findAll();
+
+        }
+        
+        if (!$agendamentos) {
+            $agendamentos = [];
         }
 
         require __DIR__ . "/../View/Agendamentos.php";

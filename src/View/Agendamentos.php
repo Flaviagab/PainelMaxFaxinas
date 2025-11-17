@@ -13,7 +13,6 @@
             <th class="subtitulo pb-4 w-15"scope="col">Cliente</th>
             <th class="subtitulo pb-4 w-15"scope="col">Serviço</th>
             <th class="subtitulo pb-4 w-15"scope="col">Telefone</th>
-            <th class="subtitulo pb-4 w-15"scope="col">Endereço</th> 
             <th class="subtitulo pb-4 w-15"scope="col">Alterar Status</th>
           </tr>
         </thead>
@@ -45,7 +44,7 @@
               </tr>
             <?php endforeach ?>
           <?php else: ?>
-              <p>Nenhum agendamento encontrado</p>
+             <td colspan="8" class="text-center">Nenhum agendamento encontrado</td>
           <?php endif; ?>
         </tbody>
       </table>
