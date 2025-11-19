@@ -109,25 +109,14 @@ session_start();
                                 <a class="nav-link" href="/endereco">Endereços</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/Agendamento">Agendamentos</a>
+                                <a class="nav-link" href="/agendamento">Agendamentos</a>
                             </li>
                         </ul>
                         <ul class="navbar-nav ms-auto">
                             <li class="nav-item">
-                                <div class="dropdown">
-                                    <a class="btn" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                        <i class="bi bi-person-circle"></i>
+                                    <a class="btn bntSair" href="/sair" role="button" title="Sair">
+                                        <i class="bi bi-box-arrow-right"></i>
                                     </a>
-
-                                    <ul class="dropdown-menu dropdown-menu-end">
-                                        <li>
-                                            <a class="dropdown-item" href="perfil">Ver perfil</a>
-                                        </li>
-                                        <li>
-                                            <a class="dropdown-item bntSair" href="/sair">
-                                                <i class="bi bi-x-circle me-2"></i>Sair</a>
-                                        </li>
-                                    </ul>
                                 </div>
                             </li>
 
@@ -136,41 +125,44 @@ session_start();
                     </div>
                 </div>
             </nav>
+        </header>
+
+        <main>
+            <?php
+
+            $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+            $uri = trim($uri, '/');
+            $controller = !empty($uri) ? $uri : 'index';
+            $param = explode("/", $controller);
+
+            $controller = $param[0] ?? "index";
+            $acao = $param[1] ?? "index";
+            $id = $param[2] ?? NULL;
+
+            $controller = ucfirst($controller) . "Controller";
+            $page = __DIR__ . "/../src/Controller/{$controller}.php";
+
+            if (file_exists($page)) {
+
+                include $page;
+                $classe = "App\\Controller\\" . $controller;
+                $control = new $classe();
+                $control->$acao($id);
+            } else include __DIR__ . "/../src/View/index/erro.php";
+            ?>
+        </main>
 
 
-            <main>
-                <?php
 
-                $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
-                $uri = trim($uri, '/');
-                $controller = !empty($uri) ? $uri : 'index';
-                $param = explode("/", $controller);
 
-                $controller = $param[0] ?? "index";
-                $acao = $param[1] ?? "index";
-                $id = $param[2] ?? NULL;
-
-                $controller = ucfirst($controller) . "Controller";
-                $page = __DIR__ . "/../src/Controller/{$controller}.php";
-
-                if (file_exists($page)) {
-
-                    include $page;
-                    $classe = "App\\Controller\\" . $controller;
-                    $control = new $classe();
-                    $control->$acao($id);
-                } else include __DIR__ . "/../src/View/index/erro.php";
-                ?>
-            </main>
-
-        <?php
+        <footer class="footer-adm">
+            <div class="text-center py-3">
+                <span>© 2024 Painel de Controle - Max Faxinas</span>
+            </div>
+        </footer>
+    <?php
     }
-        ?>
-
-
+    ?>
 </body>
-<footer class="footer-adm">
-    <div class="text-center py-3 mt-4">
-        <span>© 2024 Painel de Controle - Max Faxinas</span>
-    </div>
+
 </html>
