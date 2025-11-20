@@ -1,4 +1,4 @@
-<div class="admin-header text-center mb-4">
+<div class=" text-center mb-4">
   <h1 class="titulo">Lista de Agendamentos</h1>
 </div>
 <div class="container bg-white p-4 rounded shadow">

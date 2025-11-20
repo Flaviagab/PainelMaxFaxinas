@@ -157,7 +157,7 @@ session_start();
 
         <footer class="footer-adm">
             <div class="text-center py-3">
-                <span>© 2024 Painel de Controle - Max Faxinas</span>
+                <span>© 2025 Painel de Controle - Max Faxinas</span>
             </div>
         </footer>
     <?php
