@@ -146,6 +146,7 @@ header {
 .nav-item {
     color: black !important;
     width: auto;
+    margin-right: 7px;
 }
 
 /*FIM DO HEADER*/

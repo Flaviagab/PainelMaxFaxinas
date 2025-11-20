@@ -114,15 +114,15 @@ session_start();
                         </ul>
                         <ul class="navbar-nav ms-auto">
                             <li class="nav-item">
-                                    <a class="btn bntSair" href="/sair" role="button" title="Sair">
-                                        <i class="bi bi-box-arrow-right"></i>
-                                    </a>
-                                </div>
-                            </li>
-
-                        </ul>
-
+                                <a class="btn bntSair" href="/sair" role="button" title="Sair">
+                                    Sair <i class="bi bi-box-arrow-right"></i>
+                                </a>
                     </div>
+                    </li>
+
+                    </ul>
+
+                </div>
                 </div>
             </nav>
         </header>
@@ -157,7 +157,7 @@ session_start();
 
         <footer class="footer-adm">
             <div class="text-center py-3">
-                <span>© 2025 Painel de Controle - Max Faxinas</span>
+                <span>© 2024 Painel de Controle - Max Faxinas</span>
             </div>
         </footer>
     <?php
