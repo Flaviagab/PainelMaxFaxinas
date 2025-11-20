@@ -117,12 +117,9 @@ session_start();
                                 <a class="btn bntSair" href="/sair" role="button" title="Sair">
                                     Sair <i class="bi bi-box-arrow-right"></i>
                                 </a>
+                            </li>
+                        </ul>
                     </div>
-                    </li>
-
-                    </ul>
-
-                </div>
                 </div>
             </nav>
         </header>
