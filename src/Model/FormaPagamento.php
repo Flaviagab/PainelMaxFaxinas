@@ -29,5 +29,7 @@ class FormaPagamento
     {
         return $this->tipo;
     }
+
+   
 }
 ?>

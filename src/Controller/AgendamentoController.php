@@ -26,7 +26,12 @@ class AgendamentoController
         require __DIR__ . "/../View/agendamento/index.php";
     }
 
-    public function mudarStatus(): void
+    public function mudarStatusPagamento(): void
+    {
+        require __DIR__ . "/../View/agendamento/mudarStatusPagamento.php";
+    }
+
+       public function mudarStatus(): void
     {
         require __DIR__ . "/../View/agendamento/mudarStatus.php";
     }

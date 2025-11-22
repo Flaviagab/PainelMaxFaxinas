@@ -12,7 +12,8 @@
           <th class="pb-4" scope="col">Cliente</th>
           <th class="pb-4" scope="col">Serviço</th>
           <th class="pb-4" scope="col">Telefone</th>
-          <th class="pb-4" scope="col">Alterar Status</th>
+          <th class="pb-4" scope="col">Alterar Status Pagamento</th>
+          <th class="pb-4" scope="col">Alterar Status Data</th>
         </tr>
       </thead>
       <tbody>
@@ -27,6 +28,18 @@
               <td class="align-middle"><?= $agendamento->getCliente()->getNome() ?></td>
               <td class="align-middle"><?= $agendamento->getServico()->getTipoDeServico() ?></td>
               <td class="align-middle"><?= $agendamento->getCliente()->getTelefone() ?></td>
+
+              <td>
+                <!-- Formulário para status de pagamento -->
+    <form method="POST" action="/agendamento/mudarStatusPagamento" class="d-flex flex-column gap-2">
+        <input type="hidden" name="id" value="<?= $agendamento->getId() ?>">
+        <select name="status_pagamento" class="form-select form-select-sm">
+            <option value="PENDENTE" <?= $agendamento->getFormaPagamento()->getStatus == 'pendente' ? 'selected' : '' ?>>Pendente</option>
+            <option value="PAGO" <?= $agendamento->getFormaPagamento()->getStatus == 'pago' ? 'selected' : '' ?>>Pago</option>
+        </select>
+        <button type="submit" class="btn btn-sm btn-success">Salvar</button>
+    </form>
+              </td>
 
               <td>
                 <form method="POST" action="/agendamento/mudarStatus" class="d-flex flex-column gap-2">
