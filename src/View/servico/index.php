@@ -1,7 +1,7 @@
 <?php
 $id = $dados?->getId() ?? null;
 $tipoDeServico = $dados?->getTipoDeServico() ?? '';
-$preco = $dados?->getPreco() ?? '';
+$preco = $dados?number_format($dados->getPreco(), 2, ',', '.') : '';
 $descricao = $dados?->getDescricao() ?? '';
 $imagem = $dados?->getImagem() ?? null;
 ?>

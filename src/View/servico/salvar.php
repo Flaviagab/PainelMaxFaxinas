@@ -18,14 +18,28 @@ try {
 
     $imagemFinal = null;
 
+    // Se for edição, busca o serviço e guarda imagem atual
+    if (!empty($id)) {
+        $servico = $entityManager->find(Servico::class, $id);
+
+        if (!$servico) {
+            echo "<script>mensagem('Serviço não encontrado', '/servico', 'error');</script>";
+            exit;
+        }
+
+        $imagemAtual = $servico->getImagem();
+    } else {
+        
+        $servico = new Servico("", 0, "", "");
+        $imagemAtual = null;
+    }
+
     if (!empty($_FILES['imagem']['name'])) {
         $arquivoTemp = $_FILES['imagem']['tmp_name'];
         $nomeOriginal = basename($_FILES['imagem']['name']);
-
         $nomeNovo = uniqid() . "-" . $nomeOriginal;
 
         $caminhoFinal = "arquivos/" . $nomeNovo;
-
         $destino = __DIR__ . "/../../../public/" . $caminhoFinal;
 
         if (!move_uploaded_file($arquivoTemp, $destino)) {
@@ -34,30 +48,20 @@ try {
         }
 
         $imagemFinal = $caminhoFinal;
-    }
-
-    if (!empty($id)) {
-        $servico = $entityManager->find(Servico::class, $id);
-
-        if (!$servico) {
-            echo "<script>mensagem('Serviço não encontrado', '/servico', 'error');</script>";
-            exit;
-        }
     } else {
-        $servico = new Servico("", 0, "", "");
+        $imagemFinal = $imagemAtual;
     }
 
     $servico->setTipoDeServico($tipoDeServico);
     $servico->setPreco((float)$preco);
     $servico->setDescricao($descricao);
-
-    if ($imagemFinal !== null) {
-        $servico->setImagem($imagemFinal);
-    }
+    $servico->setImagem($imagemFinal); 
 
     $entityManager->persist($servico);
     $entityManager->flush();
+
     echo "<script>mensagem('Serviço salvo com sucesso!', '/servico', 'success');</script>";
+
 } catch (Exception $e) {
-    echo "<script>mensagem('Erro ao salvar', '/servico', 'error');</script>";
+    die($e->getMessage());
 }
