@@ -10,6 +10,7 @@ use Doctrine\ORM\Mapping\GeneratedValue;
 use Doctrine\ORM\Mapping\Id;
 use Doctrine\ORM\Mapping\JoinColumn;
 use Doctrine\ORM\Mapping\ManyToOne;
+use Doctrine\ORM\Mapping\OneToOne;
 
 #[Entity()]
 class Agendamento
@@ -32,24 +33,24 @@ class Agendamento
     #[JoinColumn(name: "servico_id", referencedColumnName: "id")]
     private Servico $servico;
 
-    #[ManyToOne]
-    #[JoinColumn(name: "forma_pagamento_id", referencedColumnName: "id")]
-    private FormaPagamento $forma_pagamento;
 
     #[ManyToOne]
     #[JoinColumn(name: "id_endereco", referencedColumnName: "id")]
     private Endereco $endereco;
+
     #[Column]
     private float $valor_total;
 
+    #[OneToOne(mappedBy: "agendamento")]
+    private Pagamento $pagamento;
 
-    public function __construct(DateTime $data, string $status, Cliente $cliente, Servico $servico, FormaPagamento $forma_pagamento,  Endereco $endereco, float $valor_total)
+
+    public function __construct(DateTime $data, string $status, Cliente $cliente, Servico $servico,  Endereco $endereco, float $valor_total)
     {
         $this->data = $data;
         $this->status = $status;
         $this->cliente = $cliente;
         $this->servico = $servico;
-        $this->forma_pagamento = $forma_pagamento;
         $this->endereco = $endereco;
         $this->valor_total = $valor_total;
     }
@@ -80,11 +81,6 @@ class Agendamento
         return $this->servico;
     }
 
-    public function getFormaPagamento(): FormaPagamento
-    {
-        return $this->forma_pagamento;
-    }
-
     public function getEndereco(): Endereco
     {
         return $this->endereco;
@@ -94,6 +90,11 @@ class Agendamento
     {
         return $this->valor_total;
     }
+
+   public function getPagamento()
+{
+    return $this->pagamento ?? null;
+}
 
     // Setters (Serve para alterar os valores)
     public function setData(DateTime $data): void

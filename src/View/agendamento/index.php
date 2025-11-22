@@ -31,14 +31,15 @@
 
               <td>
                 <!-- Formulário para status de pagamento -->
-    <form method="POST" action="/agendamento/mudarStatusPagamento" class="d-flex flex-column gap-2">
-        <input type="hidden" name="id" value="<?= $agendamento->getId() ?>">
-        <select name="status_pagamento" class="form-select form-select-sm">
-            <option value="PENDENTE" <?= $agendamento->getFormaPagamento()->getStatus == 'pendente' ? 'selected' : '' ?>>Pendente</option>
-            <option value="PAGO" <?= $agendamento->getFormaPagamento()->getStatus == 'pago' ? 'selected' : '' ?>>Pago</option>
-        </select>
-        <button type="submit" class="btn btn-sm btn-success">Salvar</button>
-    </form>
+                <form method="POST" action="/agendamento/mudarStatusPagamento" class="d-flex flex-column gap-2">
+                  <input type="hidden" name="id" value="<?= $agendamento->getId() ?>">
+                  <select name="status_pagamento" class="form-select form-select-sm">
+                    <option value="pendente" <?= $agendamento->getPagamento()->getStatus() == 'pendente' ? 'selected' : '' ?>>Pendente</option>
+                    <option value="pago" <?= $agendamento->getPagamento()->getStatus() == 'pago' ? 'selected' : '' ?>>Pago</option>
+                  </select>
+
+                  <button type="submit" class="btn btn-sm">Salvar</button>
+                </form>
               </td>
 
               <td>
