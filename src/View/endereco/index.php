@@ -23,7 +23,7 @@ $paises = $em->getRepository(Pais::class)->findAll();
 
 <div class="container mt-4">
     <div class="card">
-        <div class="card-header">
+        <div class="card-header d-flex justify-content-between align-items-center flex-wrap gap-2">
             <div class="float-start">
                 <h2>Cadastro de Endereços</h2>
             </div>
@@ -39,7 +39,7 @@ $paises = $em->getRepository(Pais::class)->findAll();
 
         <div class="card-body">
             <form action="/endereco/salvar" method="post" data-parsley-validate>
-                <div class="row">
+                <div class="row g-3 mt-2">
                     <div class="col-12 col-md-1">
                         <label for="id">ID:</label>
                         <input type="text" name="id" id="id" class="form-control" readonly value="<?= $id ?>">
@@ -61,9 +61,8 @@ $paises = $em->getRepository(Pais::class)->findAll();
                     </div>
                 </div>
 
-                <br>
-
-                <div class="row">
+                
+                <div class="row g-3 mt-2">
                     <div class="col-12 col-md-6">
                         <label for="cliente">Cliente:</label>
                         <select name="cliente" id="cliente" class="form-control" required
@@ -91,9 +90,9 @@ $paises = $em->getRepository(Pais::class)->findAll();
                     </div>
                 </div>
 
-                <br>
+                
 
-                <div class="row">
+                <div class="row g-3 mt-2">
                     <div class="col-12 col-md-6">
                         <label for="estado">Estado:</label>
                         <select name="estado" id="estado" class="form-control" required

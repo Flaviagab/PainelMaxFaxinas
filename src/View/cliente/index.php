@@ -9,7 +9,7 @@ $senha = "";
 
 <div class="container mt-4">
     <div class="card">
-        <div class="card-header">
+        <div class="card-header d-flex justify-content-between align-items-center flex-wrap gap-2">
             <div class="float-start">
                 <h2>Cadastro de Clientes</h2>
             </div>
@@ -24,7 +24,7 @@ $senha = "";
         </div>
         <div class="card-body">
             <form action="/cliente/salvar" name="formUsuario" method="post" data-parsley-validate="">
-                <div class="row">
+                <div class="row g-3 mt-2">
                     <div class="col-12 col-md-1">
                         <label for="id">ID:</label>
                         <input type="text" name="id" id="id" class="form-control" readonly value="<?= $dados?->getId() ?? '' ?>">
@@ -34,8 +34,8 @@ $senha = "";
                         <input type="text" name="nome" id="nome" class="form-control" value="<?= $dados?->getNome() ?? '' ?>" required data-parsley-required-message="Preencha o nome">
                     </div>
                 </div>
-                <br>
-                <div class="row">
+                
+                <div class="row g-3 mt-2">
                     <div class="col-12 col-md-6">
                         <label for="cpf">CPF:</label>
                         <input type="text" name="cpf" id="cpf" class="form-control cpf" value="<?= $dados?->getCpf() ?? '' ?>" required data-parsley-required-message="Preencha o CPF">
@@ -45,8 +45,8 @@ $senha = "";
                         <input type="text" name="telefone" id="telefone" class="form-control telefone" required data-parsley-required-message="Preencha um telefone" value="<?= $dados?->getTelefone() ?? '' ?>">
                     </div>
                 </div>
-                <br>
-                <div class="row">
+                
+                <div class="row g-3 mt-2">
                     <div class="col-12 col-md-6">
                         <label for="email">E-mail:</label>
                         <input type="email" name="email" id="email" class="form-control" value="<?= $dados?->getEmail() ?? '' ?>" required data-parsley-required-message="Preencha o e-mail" data-parsley-type-message="Digite um email válido">

@@ -8,7 +8,7 @@ $imagem = $dados?->getImagem() ?? null;
 
 <div class="container mt-4">
     <div class="card">
-        <div class="card-header">
+        <div class="card-header d-flex justify-content-between align-items-center flex-wrap gap-2">
             <div class="float-start">
                 <h2>Cadastro de Serviços</h2>
             </div>
@@ -25,7 +25,7 @@ $imagem = $dados?->getImagem() ?? null;
         <div class="card-body">
             <form action="/servico/salvar" method="post" enctype="multipart/form-data" data-parsley-validate>
 
-                <div class="row">
+                <div class="row g-3 mt-2">
                     <div class="col-12 col-md-1">
                         <label for="id">ID:</label>
                         <input type="text" name="id" id="id" class="form-control" readonly value="<?= $id ?>">
@@ -39,9 +39,9 @@ $imagem = $dados?->getImagem() ?? null;
                     </div>
                 </div>
 
-                <br>
+                
 
-                <div class="row">
+                <div class="row  g-3 mt-2">
                     <div class="col-12 col-md-6">
                         <label for="preco">Preço:</label>
                         <input type="text" name="preco" id="preco" class="form-control preco"
@@ -50,13 +50,13 @@ $imagem = $dados?->getImagem() ?? null;
                     </div>
 
                     <div class="col-12 col-md-6">
-                        <label for="imagem">Imagem (jpg/png):</label>
+                        <label for="imagem">Imagem:</label>
                         <input type="file" name="imagem" id="imagem" class="form-control" accept="image/*"
                                <?= empty($id) ? 'required data-parsley-required-message="Envie uma imagem"' : '' ?>>
                     </div>
                 </div>
-                <br>
-                <div class="row">
+                
+                <div class="row g-3 mt-2">
                     <div class="col-12">
                         <label for="descricao">Descrição do Serviço:</label>
                         <textarea name="descricao" id="descricao" class="form-control" rows="4"
@@ -70,7 +70,7 @@ $imagem = $dados?->getImagem() ?? null;
                     <button type="submit" class="btn btnUsuario">
                         <i class="bi bi-check-lg"></i> Salvar
                     </button>
-                </div>
+                </div>  
 
             </form>
         </div>

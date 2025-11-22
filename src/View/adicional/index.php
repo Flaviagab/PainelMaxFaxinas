@@ -8,7 +8,7 @@ $servicos = Servico::findAll();
 
 <div class="container mt-4">
     <div class="card">
-        <div class="card-header">
+        <div class="card-header d-flex justify-content-between align-items-center flex-wrap gap-2">
             <div class="float-start">
                 <h2>Cadastro de Adicionais</h2>
             </div>
@@ -26,7 +26,7 @@ $servicos = Servico::findAll();
             <form name="formCadastro" method="post" action="/adicional/salvar" enctype="multipart/form-data" data-parsley-validate="" class="formAdicional">
 
                 <!-- Primeira linha -->
-                <div class="row">
+                <div class="row g-3 mt-2">
                     <div class="col-12 col-md-1">
                         <label for="id">ID:</label>
                         <input type="text" readonly name="id" id="id" class="form-control" value="<?= $dados?->getId() ?? '' ?>">
@@ -50,7 +50,7 @@ $servicos = Servico::findAll();
                     </div>
                 </div>
 
-                <div class="row mt-4">
+                <div class="row g-3 mt-2">
 
                     <div class="col-12 col-md-6">
                         <label for="preco">Preço:</label>
@@ -58,7 +58,7 @@ $servicos = Servico::findAll();
                     </div>
 
                  
-                    <div class="row mt-4">
+                    <div class="row g-3 mt-2">
                         <div class="col-12">
                             <label for="descricao">Descrição do Adicional:</label>
                             <textarea name="descricao" id="descricao" class="form-control" rows="4" required data-parsley-required-message="Preencha a descrição do adicional"><?= $dados?->getDescricao() ?? '' ?></textarea>

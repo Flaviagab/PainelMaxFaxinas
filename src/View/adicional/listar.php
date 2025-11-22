@@ -8,7 +8,7 @@ $servico = $dados?->getServico() ?? null;
 
 <div class="container mt-4">
     <div class="card">
-        <div class="card-header">
+        <div class="card-header d-flex justify-content-between align-items-center flex-wrap gap-2">
             <div class="float-start">
                 <h2>Listagem de Adicionais</h2>
             </div>
@@ -21,7 +21,7 @@ $servico = $dados?->getServico() ?? null;
                 </a>
             </div>
         </div>
-        <div class="card-body">
+        <div class="card-body table-responsive">
             <table class="table table-bordered table-striped">
                 <thead>
                     <tr>

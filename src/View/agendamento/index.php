@@ -5,22 +5,21 @@
   <div class="table-responsive">
     <table class="table table-striped table-bordered">
       <thead>
-        <tr>
-          <th class="pb-4" scope="col">Id</th>
+        <tr>       
           <th class="pb-4" scope="col">Data</th>
           <th class="pb-4" scope="col">Status</th>
           <th class="pb-4" scope="col">Cliente</th>
           <th class="pb-4" scope="col">Serviço</th>
-          <th class="pb-4" scope="col">Telefone</th>
-          <th class="pb-4" scope="col">Alterar Status Pagamento</th>
-          <th class="pb-4" scope="col">Alterar Status Data</th>
+          <th class="pb-4 col" scope="col">Telefone</th>
+          <th class="pb-4" scope="col">Endereço</th>
+          <th class="pb-4 col-status" scope="col">Alterar Status Pagamento</th>
+          <th class="pb-4 col-status" scope="col">Alterar Status Data</th>
         </tr>
       </thead>
       <tbody>
         <?php if (!empty($agendamentos)): ?>
           <?php foreach ($agendamentos as $agendamento): ?>
-            <tr>
-              <td class="align-middle"><?= $agendamento->getId() ?></td>
+            <tr>            
               <td class="align-middle"><?= $agendamento->getData()->format('d/m/Y') ?></td>
               <td class="align-middle <?= 'status-' . $agendamento->getStatus() ?>">
                 <?= $agendamento->getStatus() ?>
@@ -28,6 +27,7 @@
               <td class="align-middle"><?= $agendamento->getCliente()->getNome() ?></td>
               <td class="align-middle"><?= $agendamento->getServico()->getTipoDeServico() ?></td>
               <td class="align-middle"><?= $agendamento->getCliente()->getTelefone() ?></td>
+              <td class="align-middle"><?= $agendamento->getEndereco()->getRua() ?>, <?= $agendamento->getEndereco()->getNumero() ?> - <?= $agendamento->getEndereco()->getBairro() ?></td>
 
               <td>
                 <!-- Formulário para status de pagamento -->
