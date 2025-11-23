@@ -62,6 +62,6 @@ try {
 
     echo "<script>mensagem('Serviço salvo com sucesso!', '/servico', 'success');</script>";
 
-} catch (Exception $e) {
-    die($e->getMessage());
+}catch (Exception $e) {
+    echo "<script>mensagem('Erro ao salvar', '/servico', 'error');</script>";
 }
