@@ -24,5 +24,5 @@ try {
     }
 
 } catch (Exception $e) {
-    echo "<script>mensagem('Erro ao excluir', '/cliente/listar', 'error');</script>";
+    echo "<script>mensagem('Erro ao excluir', '/endereco/listar', 'error');</script>";
 }

@@ -30,7 +30,7 @@ class EnderecoController
 
     public function listar()
     {
-        $enderecos = $this->enderecoRepository->findBy([], ['id' => 'DESC']);
+        $enderecos = $this->enderecoRepository->findAll();
         require __DIR__ . "/../View/endereco/listar.php";
     }
 

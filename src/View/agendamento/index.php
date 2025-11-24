@@ -13,7 +13,7 @@
           <th class="pb-4 col" scope="col">Telefone</th>
           <th class="pb-4" scope="col">Endereço</th>
           <th class="pb-4 col-status" scope="col">Alterar Status Pagamento</th>
-          <th class="pb-4 col-status" scope="col">Alterar Status Data</th>
+          <th class="pb-4 col-status" scope="col">Alterar Status Agendamento</th>
         </tr>
       </thead>
       <tbody>

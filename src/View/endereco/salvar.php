@@ -3,8 +3,6 @@ use App\Core\Database;
 use App\Model\Endereco;
 use App\Model\Cliente;
 use App\Model\Cidade;
-use App\Model\Estado;
-use App\Model\Pais;
 
 $entityManager = Database::getEntityManager();
 
@@ -15,25 +13,19 @@ try {
     $bairro = $_POST['bairro'] ?? null;
     $idCliente = $_POST['cliente'] ?? null;
     $idCidade = $_POST['cidade'] ?? null;
-    $idEstado = $_POST['estado'] ?? null;
-    $idPais = $_POST['pais'] ?? null;
 
-    if (!$rua || !$numero || !$bairro || !$idCliente || !$idCidade || !$idEstado || !$idPais) {
+    if (!$rua || !$numero || !$bairro || !$idCliente || !$idCidade) {
         echo "<script>mensagem('Preencha todos os campos!', '/endereco', 'error');</script>";
         exit;
     }
 
     $repoCliente = $entityManager->getRepository(Cliente::class);
     $repoCidade = $entityManager->getRepository(Cidade::class);
-    $repoEstado = $entityManager->getRepository(Estado::class);
-    $repoPais = $entityManager->getRepository(Pais::class);
 
     $cliente = $repoCliente->find($idCliente);
     $cidade = $repoCidade->find($idCidade);
-    $estado = $repoEstado->find($idEstado);
-    $pais = $repoPais->find($idPais);
 
-    if (!$cliente || !$cidade || !$estado || !$pais) {
+    if (!$cliente || !$cidade) {
         echo "<script>mensagem('Dados de relacionamento inválidos.', '/endereco', 'error');</script>";
         exit;
     }
@@ -58,7 +50,7 @@ try {
     $entityManager->persist($endereco);
     $entityManager->flush();
 
-    echo "<script>mensagem('Endereço salvo com sucesso!', '/endereco/listar', 'success');</script>";
+    echo "<script>mensagem('Endereço salvo com sucesso!', '/endereco', 'success');</script>";
 } catch (Exception $e) {
     echo "<script>mensagem('Erro ao salvar', '/endereco', 'error');</script>";
 }

@@ -23,11 +23,11 @@ class Endereco
 
     #[Column()]
     private string $bairro;
-    
+
     #[ManyToOne]
     private Cliente $cliente;
 
-     #[ManyToOne]
+    #[ManyToOne]
     private Cidade $cidade;
 
     public function __construct(string $rua, int $numero, string $bairro, Cliente $cliente, Cidade $cidade)
@@ -67,5 +67,35 @@ class Endereco
     public function getCidade(): Cidade
     {
         return $this->cidade;
+    }
+
+    public function setId(int $id): void
+    {
+        $this->id = $id;
+    }
+
+    public function setRua(string $rua): void
+    {
+        $this->rua = $rua;
+    }
+
+    public function setNumero(int $numero): void
+    {
+        $this->numero = $numero;
+    }
+
+    public function setBairro(string $bairro): void
+    {
+        $this->bairro = $bairro;
+    }
+
+    public function setCliente(Cliente $cliente): void
+    {
+        $this->cliente = $cliente;
+    }
+
+    public function setCidade(Cidade $cidade): void
+    {
+        $this->cidade = $cidade;
     }
 }

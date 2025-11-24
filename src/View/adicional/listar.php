@@ -27,6 +27,7 @@ $servico = $dados?->getServico() ?? null;
                     <tr>
                         <th>ID</th>
                         <th>Nome</th>
+                        <th>Serviço</th>
                         <th>Preço</th>
                         <th class ="col-opcoes">Opções</th>
                     </tr>
@@ -38,6 +39,7 @@ $servico = $dados?->getServico() ?? null;
                                 <tr>
                                     <td><?=$dados->getId()?></td>
                                     <td><?=$dados->getNome()?></td>
+                                    <td><?=$dados->getServico()->getTipoDeServico()?></td>
                                     <td>R$ <?= number_format($dados->getPreco(), 2, ',', '.')?></td>
                                     <td class="col-opcoes">
                                 <a href="/adicional/index/<?= $dados->getId() ?>" class="btn" title="Editar">

@@ -47,7 +47,7 @@ class AdicionalController
 
     public function listar()
     {
-        $adicionais = $this->adicionalRepository->findBy([],  ['nome' => 'ASC']);
+        $adicionais = $this->adicionalRepository->findAll();
         require __DIR__ . "/../View/adicional/listar.php";
     }
 }
