@@ -40,7 +40,29 @@ try {
     }
 
     if (!empty($_FILES['imagem']['name'])) {
+
         $arquivoTemp = $_FILES['imagem']['tmp_name'];
+
+        $info = getimagesize($arquivoTemp);
+        if ($info === false) {
+            echo "<script>mensagem('O arquivo enviado não é uma imagem válida', '/servico', 'error');</script>";
+            exit;
+        }
+
+        $mime = $info['mime'];
+        $tiposPermitidos = ['image/jpeg', 'image/png'];
+
+        if (!in_array($mime, $tiposPermitidos)) {
+            echo "<script>mensagem('Envie apenas imagens JPG ou PNG', '/servico', 'error');</script>";
+            exit;
+        }
+        
+        $extensao = strtolower(pathinfo($_FILES['imagem']['name'], PATHINFO_EXTENSION));
+        if (!in_array($extensao, ['jpg', 'jpeg', 'png'])) {
+            echo "<script>mensagem('Extensão inválida. Somente JPG ou PNG.', '/servico', 'error');</script>";
+            exit;
+        }
+
         $nomeOriginal = basename($_FILES['imagem']['name']);
         $nomeNovo = uniqid() . "-" . $nomeOriginal;
 

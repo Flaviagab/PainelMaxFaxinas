@@ -19,7 +19,7 @@ try {
         $entityManager->remove($adicional);
         $entityManager->flush();
 
-        echo "<script>mensagem('Adicional excluído com sucesso!', '/adicional/listar', 'ok');</script>";
+        echo "<script>mensagem('Adicional excluído com sucesso!', '/adicional/listar', 'success');</script>";
     } else {
         echo "<script>mensagem('Adicional não encontrado', '/adicional/listar', 'error');</script>";
     }

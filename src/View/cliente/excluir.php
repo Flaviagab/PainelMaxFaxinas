@@ -18,7 +18,7 @@ try {
         $entityManager->remove($cliente);
         $entityManager->flush();
 
-        echo "<script>mensagem('Cliente excluído com sucesso!', '/cliente/listar', 'ok');</script>";
+        echo "<script>mensagem('Cliente excluído com sucesso!', '/cliente/listar', 'success');</script>";
     } else {
         echo "<script>mensagem('Cliente não encontrado', '/cliente/listar', 'error');</script>";
     }
