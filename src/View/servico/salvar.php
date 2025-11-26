@@ -16,6 +16,11 @@ try {
     $preco = str_replace('.', '', $preco);
     $preco = str_replace(',', '.', $preco);
 
+    if ($preco === "" || (float)$preco <= 0) {
+        echo "<script>mensagem('O preço deve ser maior que zero', '/servico', 'error');</script>";
+        exit;
+    }
+
     $imagemFinal = null;
 
     // Se for edição, busca o serviço e guarda imagem atual
@@ -29,7 +34,7 @@ try {
 
         $imagemAtual = $servico->getImagem();
     } else {
-        
+
         $servico = new Servico("", 0, "", "");
         $imagemAtual = null;
     }
@@ -55,13 +60,12 @@ try {
     $servico->setTipoDeServico($tipoDeServico);
     $servico->setPreco((float)$preco);
     $servico->setDescricao($descricao);
-    $servico->setImagem($imagemFinal); 
+    $servico->setImagem($imagemFinal);
 
     $entityManager->persist($servico);
     $entityManager->flush();
 
     echo "<script>mensagem('Serviço salvo com sucesso!', '/servico', 'success');</script>";
-
-}catch (Exception $e) {
+} catch (Exception $e) {
     echo "<script>mensagem('Erro ao salvar', '/servico', 'error');</script>";
 }

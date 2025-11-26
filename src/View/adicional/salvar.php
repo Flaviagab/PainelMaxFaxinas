@@ -13,6 +13,11 @@ if ($_POST) {
     $preco = str_replace('.', '', $preco);
     $preco = str_replace(',', '.', $preco);
 
+    if ($preco === "" || (float)$preco <= 0) {
+        echo "<script>mensagem('O preço deve ser maior que zero', '/adicional', 'error');</script>";
+        exit;
+    }
+
     if (empty($nome)) {
         echo "<script>mensagem('Preencha o nome do adicional', '/adicional', 'error');</script>";
         exit;

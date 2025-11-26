@@ -19,6 +19,12 @@ try {
         exit;
     }
 
+    if (!is_numeric($numero) || (int)$numero <= 0) {
+        echo "<script>mensagem('O número da residência deve ser um valor inteiro positivo', '/endereco', 'error');</script>";
+        exit;
+    }
+
+
     $repoCliente = $entityManager->getRepository(Cliente::class);
     $repoCidade = $entityManager->getRepository(Cidade::class);
 
