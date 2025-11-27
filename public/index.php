@@ -94,7 +94,7 @@ session_start();
                     <div class="collapse navbar-collapse" id="navbarNavDropdown">
                         <ul class="navbar-nav navbar-nav gap-4">
                             <li class="nav-item">
-                                <a class="nav-link" aria-current="page" href="index">Home</a>
+                                <a class="nav-link" aria-current="page" href="/index">Home</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="/servico">Serviços</a>
