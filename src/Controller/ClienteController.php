@@ -37,7 +37,7 @@ class ClienteController
 
     public function listar()
     {
-        $clientes = $this->clienteRepository->findBy([], ['nome' => 'ASC']);
+        $clientes = $this->clienteRepository->findAll();
         require __DIR__ . "/../View/cliente/listar.php";
     }
 

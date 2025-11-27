@@ -35,7 +35,7 @@ class ServicoController
 
     public function listar()
     {
-        $servicos = $this->servicoRepository->findBy([], ['id' => 'DESC']);
+        $servicos = $this->servicoRepository->findAll();
         require __DIR__ . "/../View/servico/listar.php";
     }
 
